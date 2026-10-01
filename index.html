@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>personel website</title>
+    <style>
+        html {
+    scroll-behavior: smooth;
+    
+        }
+    body{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        
+    }
+    *{
+        box-sizing: border-box;
+    }
+        .main{
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            padding: 5px;
+            column-gap: 100px;
+            row-gap: 50px;
+            background-color: rgb(253, 252, 252);
+            
+        }
+        .main > div{
+           
+            padding: 20px;
+            align-items: center;
+            height: auto;
+        
+        }
+        img{
+            width: 100px;
+            border-style: hidden;
+            border-radius: 20px;
+            
+        }
+        .pn{
+            grid-column: 1/ span 5;
+            /* text-align: left; */
+            border-style: inset;
+            height: 30px;
+            text-align: left;
+            color: black ;
+            background-color: rgb(42, 97, 165);
+            position: sticky;
+            top: 10px;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            z-index: 10;
+             
+        
+        }
+        .about{
+            grid-column: 1/ span 5;
+            text-align:justify; 
+            border-style: groove;
+            color: rgb(3, 5, 7);
+            background-color:rgb(241, 243, 246);
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            scroll-margin-top: 100px;
+            
+        
+        }
+        .about:hover{
+            transform: translateY(-3px);
+        
+        }
+        .skill{
+            grid-column: 1/ span 2;
+            border-style: outset;
+            background-color: brown;
+             scroll-margin-top: 100px;
+        }
+        .skill:hover{
+            transform: translatex(3px);
+            transition-delay: 0.3ms;
+        }
+        .lk{
+            
+            display:flex;
+            gap: 20px;
+            justify-content: end;  
+            margin-top: -30px;
+        }
+        .lk a{
+            text-decoration: none;
+            color: black;
+            text-decoration: solid;
+           
+        }
+        .project{
+            grid-column: 3/span 3;
+            border-style: dotted;
+            background-color:burlywood;
+             scroll-margin-top: 100px;
+        }
+        .project:hover{
+            transform: translateY(-3px);
+        }
+        .contact{
+            grid-column: 1/span 5;
+            height: 100px;
+            border-style: outset;
+            background-color: cadetblue;
+            border-radius: 30px;
+             scroll-margin-top: 100px;
+        }
+        .contact:hover{
+            transform: translateY(-3px);}
+        .contact .contact-info{
+            display: flex;
+            justify-content: center;
+        }
+         a:hover{
+            color: rgb(51, 21, 183);
+            font-size:20px;
+            
+        }
+        .contact-info .contact-item:hover{
+            font-size: 15px;
+            color: rgb(204, 110, 10);
+        }
+
+/* POPUP OVERLAY */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+}
+
+/* POPUP FORM */
+.popup-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    max-width: 90%;
+    padding: 25px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    z-index: 101;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+    float: right;
+    font-size: 25px;
+    cursor: pointer;
+    color: black;
+}
+
+/* FORM INPUTS */
+.popup-form input,
+.popup-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* SEND BUTTON */
+.popup-form button {
+    padding: 10px 20px;
+    background-color: rgb(42, 97, 165);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-form button:hover {
+    background-color: rgb(30, 70, 120);
+}
+
+        @media (max-width:600px){
+             .main  {
+             grid-template-columns: 1fr;
+            padding: 20px;
+        
+    }
+    
+
+    .pn,
+    .about,
+    .skill,
+    .project,
+    .contact {
+        grid-column: 1;
+        
+    }
+            .pn{
+               
+                flex-direction: column;
+                /* gap: 10px; */
+                position: static;
+                /* text-align: center; */
+                
+                
+            }
+           
+            .about img,h2{
+                margin-left: 45%;
+            }
+        .about{
+            position: static;
+        }
+        .lk {
+        margin-left: 0;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .contact{
+        height:150px;
+    }
+        }
+            
+        .contact-info{
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+       <div class="pn">JAWAD PK <div class="lk"><a href="#about">About </a> <a href="#skill">Skills</a> <a href="#project">Projects</a> <a href="#contact">Contact</a></div>
+       
+       </div>
+       <div id="about" class="about">
+         <img src="images/WhatsApp Image 2026-09-17 at 4.06.47 PM.jpeg" alt="pkj"> <h2>About Me</h2>I’m a passionate Information Technology graduate with a strong interest in Software Engineering, Artificial Intelligence, and Machine Learning. I enjoy building practical applications and exploring how technology can solve real-world problems. I have experience working with Python, JavaScript, web development, databases, and AI-based technologies through academic and personal projects. Currently, I’m working as an intern at Bridgeon, where I’m developing my technical skills and gaining practical experience in software development. I’m continuously learning new technologies, improving my problem-solving and programming skills, and working toward becoming a skilled AI/ML Engineer who can build reliable and impactful software solutions.
+</div>
+       <div id="skill" class="skill">
+    <h2>My Skills</h2>
+
+    <p>
+        I have a growing foundation in software development and artificial
+        intelligence, with hands-on experience through academic projects,
+        personal projects, and my internship at Bridgeon.
+    </p>
+
+    <h3>Programming</h3>
+    <ul>
+        <li>Python</li>
+        <li>JavaScript</li>
+        <li>HTML & CSS</li>
+    </ul>
+
+    <h3>Web Development</h3>
+    <ul>
+        <li>Frontend Development</li>
+        <li>Responsive Web Design</li>
+        <li>FastAPI</li>
+    </ul>
+
+    <h3>Database & Backend</h3>
+    <ul>
+        <li>SQL</li>
+        <li>Firebase</li>
+        <li>Backend Development</li>
+        <li>Node.js</li>
+    </ul>
+
+    <h3>AI & Machine Learning</h3>
+    <ul>
+        <li>Machine Learning Fundamentals</li>
+        <li>Data Analysis</li>
+        <li>Natural Language Processing</li>
+        <li>AI API Integration</li>
+    </ul>
+
+    <h3>Tools & Technologies</h3>
+    <ul>
+        <li>Git & GitHub</li>
+        <li>VS Code</li>
+        <li>Flutter</li>
+        <li>FastAPI</li>
+    </ul>
+
+    <h3>Soft Skills</h3>
+    <ul>
+        <li>Problem Solving</li>
+        <li>Logical Thinking</li>
+        <li>Continuous Learning</li>
+        <li>Teamwork</li>
+        <li>Communication</li>
+    </ul>
+</div>
+       <div id="project" class="project"><h2>My Projects</h2>
+
+<p>
+    Here are some of the projects I have worked on as part of my academic
+    journey and my interest in software development, artificial intelligence,
+    and real-world problem solving.
+</p>
+
+<h3>1. Smart Attendance System</h3>
+
+<p>
+    The Smart Attendance System is a face-recognition based application
+    developed to simplify and automate the process of recording student
+    attendance. The system uses a camera to identify registered students
+    and automatically records their name, date, and time of attendance.
+    It can also identify late arrivals and provide notifications when
+    required. The project was developed to reduce manual attendance work,
+    improve accuracy, and provide a more convenient solution for teachers
+    and students.
+</p>
+
+<p>
+    <strong>Technologies:</strong> Python, OpenCV, Face Recognition, SQL,
+    HTML, CSS, JavaScript
+</p>
+
+<h3>2. Santali Translator & Tutor</h3>
+
+<p>
+    The Santali Translator & Tutor is an AI-powered application designed
+    to help people communicate and learn the Santali language. The
+    application supports text and speech-based translation and provides
+    interactive learning features for users who want to improve their
+    Santali language skills. It combines speech recognition, translation,
+    and AI-based tutoring to create a more accessible language-learning
+    experience. The project focuses on using modern AI technologies to
+    support regional and less-resourced languages.
+</p>
+
+<p>
+    <strong>Technologies:</strong> Flutter, Python, FastAPI, AI APIs,
+    Speech Recognition, Natural Language Processing
+</p>
+
+<h3>3. Personal AI Assistant</h3>
+
+<p>
+    The Personal AI Assistant is an ongoing project inspired by the idea
+    of creating a voice-based digital assistant. The system is designed
+    to understand user commands, process requests using AI, and provide
+    useful responses. The project explores concepts such as natural
+    language processing, voice interaction, API integration, and
+    automation. It is also helping me develop a deeper understanding of
+    how AI-powered applications can interact with users and perform
+    practical tasks.
+</p>
+
+<p>
+    <strong>Technologies:</strong> Python, Artificial Intelligence,
+    APIs, Natural Language Processing, Voice Recognition
+</p>
+</div>
+       <div id="contact" class="contact"><h2>Contact Me</h2> <p> I’m always interested in connecting with new people, discussing technology, and exploring opportunities to learn and grow. Feel free to get in touch with me. </p> <div class="contact-info"><div class="contact-item">
+    <h3>Email</h3>
+
+    <button onclick="openPopup()">
+        <p>pkjawad2018@gmail.com</p>
+    </button>
+</div> <div class="contact-item"> <h3>Phone</h3> <p>+91 7356568347</p> </div> <div class="contact-item"> <h3>Location</h3> <p>Manjeri, Malappuram, Kerala, India</p> </div> </div></div> 
+    </div>
+    <!-- Popup Background -->
+<div class="popup-overlay" id="popupOverlay"></div>
+
+<!-- Popup Form -->
+<div class="popup-form" id="popupForm">
+
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+
+    <h2>Contact Me</h2>
+
+    <form>
+
+        <label>Your Name</label>
+        <input type="text" placeholder="Enter your name" required>
+
+        <label>Your Email</label>
+        <input type="email" placeholder="Enter your email" required>
+
+        <label>Your Message</label>
+        <textarea rows="5" placeholder="Enter your message" required></textarea>
+
+        <button type="submit">Send Message</button>
+
+    </form>
+
+</div>
+
+<script>
+
+function openPopup() {
+
+    document.getElementById("popupForm").style.display = "block";
+
+    document.getElementById("popupOverlay").style.display = "block";
+
+}
+
+
+function closePopup() {
+
+    document.getElementById("popupForm").style.display = "none";
+
+    document.getElementById("popupOverlay").style.display = "none";
+
+}
+
+</script>
+</body>
+</html>
